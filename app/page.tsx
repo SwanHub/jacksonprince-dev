@@ -77,7 +77,7 @@ export default function Home() {
         </ul>
       </article>
 
-      <section className="flex flex-col gap-1" aria-label="Doodles">
+      <section className="flex flex-col gap-1" aria-label="Doodle Gallery">
         <img
           src="/doodle_2.jpg"
           alt="Doodle artwork"
