@@ -1,3 +1,3 @@
-This is my personal website.
+Welcome to the code for [my personal website](https://google.com)!
 
-Glad to be here on the web. Fingers crossed GitHub stores this code in their Arctic Vault 🤞 I think it's worthy.
+Maybe GitHub will store this code in their Arctic Vault 🤞 I think I've got a shot.
