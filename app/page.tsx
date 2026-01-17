@@ -1,7 +1,7 @@
 export default function Home() {
   return (
-    <main className="p-4 sm:p-12 max-w-xl">
-      <header className="pb-8">
+    <main className="p-4 sm:p-12 w-full flex flex-col justify-center items-center">
+      <header className="pb-8 max-w-xl text-left w-full">
         <h1 className="text-3xl font-(family-name:--font-instrument-serif)">
           Jackson Prince
         </h1>
@@ -26,7 +26,7 @@ export default function Home() {
         </nav>
       </header>
 
-      <article className="text-sm pb-8 space-y-4">
+      <article className="text-sm pb-8 text-left space-y-4 max-w-xl w-full">
         <p>Welcome to my website!</p>
         <p>
           I live in New York, engineer growth at{" "}
@@ -77,21 +77,24 @@ export default function Home() {
         </ul>
       </article>
 
-      <section className="flex flex-col gap-1" aria-label="Doodle Gallery">
+      <section
+        className="flex flex-col gap-1 max-w-xl justify-start w-full"
+        aria-label="Doodle Gallery"
+      >
         <img
-          src="/doodle_2.jpg"
+          src="/doodle_2.JPG"
           alt="Doodle artwork"
-          className="max-w-lg border-2 border-zinc-200"
+          className="border-2 border-zinc-200"
         />
         <img
-          src="/doodle_3.jpg"
+          src="/doodle_3.JPG"
           alt="Doodle artwork"
-          className="max-w-lg border-2 border-zinc-200"
+          className="border-2 border-zinc-200"
         />
         <img
-          src="/doodle_1.jpg"
+          src="/doodle_1.JPG"
           alt="Doodle artwork"
-          className="max-w-lg border-2 border-zinc-200"
+          className="border-2 border-zinc-200"
         />
       </section>
     </main>
