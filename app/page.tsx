@@ -29,7 +29,7 @@ export default function Home() {
       <article className="text-sm pb-8 text-left space-y-4 max-w-xl w-full">
         <p>Welcome to my website!</p>
         <p>
-          I live in New York, engineer growth at{" "}
+          I live in New York, code at{" "}
           <a
             href="https://roboflow.com"
             className="text-violet-700 hover:underline"
