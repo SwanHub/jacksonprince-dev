@@ -61,15 +61,15 @@ export default function Home() {
         </p>
         <p>A few unusual facts:</p>
         <ul className="ml-4 space-y-1">
-          <li className="list-disc">Acted as a mathematician Off-Broadway</li>
           <li className="list-disc">
             Published a coffee table book that won a Canadian Print Award
           </li>
           <li className="list-disc">
-            Associate produced a documentary now on Amazon Prime
-          </li>
-          <li className="list-disc">
             Sold an art sharing app with 100k+ posts
+          </li>
+          <li className="list-disc">Acted as a mathematician Off-Broadway</li>
+          <li className="list-disc">
+            Produced a documentary now on Amazon Prime
           </li>
           <li className="list-disc">
             Lived in SF, Austin, Denver before finding loml in BK
