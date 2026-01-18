@@ -69,7 +69,7 @@ export default function Home() {
           </li>
           <li className="list-disc">Acted as a mathematician Off-Broadway</li>
           <li className="list-disc">
-            Produced a documentary now on Amazon Prime
+            Received a grant in college to create a doodle mag
           </li>
           <li className="list-disc">
             Lived in SF, Austin, Denver before finding loml in BK
