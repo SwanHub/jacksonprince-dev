@@ -57,7 +57,7 @@ export default function Home() {
           >
             Museum of Mathematics on February 23rd
           </a>{" "}
-          (free, virtual).
+          .
         </p>
         <p>A few unusual facts:</p>
         <ul className="ml-4 space-y-1">
