@@ -86,16 +86,6 @@ export default function Home() {
           alt="Doodle artwork"
           className="border-2 border-zinc-200"
         />
-        <img
-          src="/doodle_3.JPG"
-          alt="Doodle artwork"
-          className="border-2 border-zinc-200"
-        />
-        <img
-          src="/doodle_1.JPG"
-          alt="Doodle artwork"
-          className="border-2 border-zinc-200"
-        />
       </section>
     </main>
   );
