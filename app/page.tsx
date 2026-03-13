@@ -55,26 +55,10 @@ export default function Home() {
             className="text-[#d5af60] hover:underline"
             rel="noopener noreferrer"
           >
-            Museum of Mathematics on February 23rd
+            Museum of Mathematics
           </a>{" "}
           .
         </p>
-        <p>A few unusual facts:</p>
-        <ul className="ml-4 space-y-1">
-          <li className="list-disc">
-            Published a coffee table book that won a Canadian Print Award
-          </li>
-          <li className="list-disc">
-            Sold an art sharing app with 100k+ posts
-          </li>
-          <li className="list-disc">Acted as a mathematician Off-Broadway</li>
-          <li className="list-disc">
-            Received a grant in college to create a doodle mag
-          </li>
-          <li className="list-disc">
-            Lived in SF, Austin, Denver before finding loml in BK
-          </li>
-        </ul>
       </article>
 
       <section
