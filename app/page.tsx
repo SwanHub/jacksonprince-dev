@@ -48,15 +48,15 @@ export default function Home() {
           .
         </p>
         <p>
-          I enjoy writing, doodling, running and acting. Come to my next play
-          reading with the{" "}
+          I enjoy buiding for the web, writing, doodling, running and acting.
+          Come to my next play reading with the{" "}
           <a
             href="https://momath.org/civicrm/event/info/?reset=1&id=11725"
             className="text-[#d5af60] hover:underline"
             rel="noopener noreferrer"
           >
             Museum of Mathematics
-          </a>{" "}
+          </a>
           .
         </p>
       </article>
