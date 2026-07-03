@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import {
+  Caveat,
   Geist_Mono,
   Instrument_Serif,
   Instrument_Sans,
+  Libre_Baskerville,
 } from "next/font/google";
 import "./globals.css";
 
@@ -23,8 +25,20 @@ const instrumentSerif = Instrument_Serif({
   weight: "400",
 });
 
+const libreBaskerville = Libre_Baskerville({
+  variable: "--font-baskerville",
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
+
+const caveat = Caveat({
+  variable: "--font-caveat",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+
 export const metadata: Metadata = {
-  title: "Jackson Prince",
+  title: "Jackson Prince's Website",
   description:
     "Jackson Prince is a growth engineer at Roboflow and founder of Frame 240, based in New York City.",
   keywords: [
@@ -42,13 +56,13 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://jacksonprince.dev",
     siteName: "Jackson Prince",
-    title: "Jackson Prince",
+    title: "Jackson Prince's Website",
     description:
       "Growth engineer at Roboflow and founder of Frame 240, based in New York City.",
   },
   twitter: {
     card: "summary",
-    title: "Jackson Prince",
+    title: "Jackson Prince's Website",
     description:
       "Growth engineer at Roboflow and founder of Frame 240, based in New York City.",
   },
@@ -66,9 +80,8 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${instrumentSans.variable} ${geistMono.variable} ${instrumentSerif.variable} antialiased`}
+        className={`${instrumentSans.variable} ${geistMono.variable} ${instrumentSerif.variable} ${libreBaskerville.variable} ${caveat.variable} antialiased`}
       >
-        <div className="top-0 left-0 w-full h-2 bg-[#8B4513]" />
         {children}
       </body>
     </html>

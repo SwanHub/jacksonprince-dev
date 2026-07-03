@@ -39,3 +39,12 @@ body {
 .animate-float {
   animation: float-up 0.6s ease-out forwards;
 }
+
+@keyframes sprite-jump {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-48px); }
+}
+
+.animate-sprite-jump {
+  animation: sprite-jump 0.5s ease-out;
+}
