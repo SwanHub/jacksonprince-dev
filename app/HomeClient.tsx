@@ -3,8 +3,9 @@
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { Doodle } from "@/lib/doodles";
+import Breadcrumbs from "./components/Breadcrumbs";
 import DoodleGallery from "./components/DoodleGallery";
-import SocialLinks from "./components/SocialLinks";
+import PageShell from "./components/PageShell";
 
 export default function HomeClient({ doodles }: { doodles: Doodle[] }) {
   const rowRef = useRef<HTMLDivElement>(null);
@@ -82,14 +83,12 @@ export default function HomeClient({ doodles }: { doodles: Doodle[] }) {
   }, []);
 
   return (
-    <main className="min-h-screen w-full flex flex-col items-center px-6 pt-16 pb-28 gap-6">
+    <PageShell>
       <div className="flex flex-col items-center gap-4 w-full border-b border-dashed max-w-3xl pb-12 border-b-zinc-200">
-        <div className="flex flex-row gap-4">
-          <h1 className="text-2xl sm:text-3xl text-center leading-tight">
-            Jackson Prince
-          </h1>
-          <SocialLinks />
-        </div>
+        <Breadcrumbs />
+        <h1 className="mt-8 text-2xl sm:text-3xl text-center leading-tight uppercase">
+          Welcome
+        </h1>
 
         <nav className="flex items-center gap-3 text-zinc-600">
           <Link
@@ -161,6 +160,6 @@ export default function HomeClient({ doodles }: { doodles: Doodle[] }) {
           </div>
         </div>
       </div>
-    </main>
+    </PageShell>
   );
 }

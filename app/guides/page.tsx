@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumbs from "../components/Breadcrumbs";
+import PageShell from "../components/PageShell";
 
 export const metadata: Metadata = {
   title: "Guides — Jackson Prince",
@@ -27,10 +28,10 @@ const guidesByMonth: { month: string; guides: Guide[] }[] = [
 
 export default function GuidesPage() {
   return (
-    <main className="min-h-screen w-full flex flex-col items-center px-6 pt-16 pb-28 gap-6">
+    <PageShell>
       <div className="flex flex-col items-center gap-4 w-full border-b border-dashed max-w-3xl pb-12 border-b-zinc-200">
-        <Breadcrumbs current="Technical Guides" />
-        <h1 className="mt-8 text-2xl sm:text-3xl text-center leading-tight">
+        <Breadcrumbs current="guides" />
+        <h1 className="mt-8 text-2xl sm:text-3xl text-center leading-tight uppercase">
           Technical Guides
         </h1>
         <h2>Following my curiosity</h2>
@@ -57,6 +58,6 @@ export default function GuidesPage() {
           </section>
         ))}
       </div>
-    </main>
+    </PageShell>
   );
 }
