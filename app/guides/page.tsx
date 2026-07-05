@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Breadcrumbs from "../components/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Guides — Jackson Prince",
@@ -26,15 +27,16 @@ const guidesByMonth: { month: string; guides: Guide[] }[] = [
 
 export default function GuidesPage() {
   return (
-    <main className="min-h-screen w-full flex flex-col items-center px-6 pt-16 pb-28 gap-10">
-      <div className="flex flex-col items-center gap-4">
-        <h1 className="text-2xl sm:text-3xl text-center leading-tight">
+    <main className="min-h-screen w-full flex flex-col items-center px-6 pt-16 pb-28 gap-6">
+      <div className="flex flex-col items-center gap-4 w-full border-b border-dashed max-w-3xl pb-12 border-b-zinc-200">
+        <Breadcrumbs current="Technical Guides" />
+        <h1 className="mt-8 text-2xl sm:text-3xl text-center leading-tight">
           Technical Guides
         </h1>
         <h2>Following my curiosity</h2>
       </div>
 
-      <div className="w-full max-w-xl flex flex-col gap-8">
+      <div className="w-full max-w-3xl flex flex-col gap-8 pt-4">
         {guidesByMonth.map(({ month, guides }) => (
           <section key={month} className="flex flex-col gap-3">
             <h2 className="uppercase text-xs font-light tracking-widest text-zinc-500">

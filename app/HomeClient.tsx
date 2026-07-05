@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { Doodle } from "@/lib/doodles";
 import DoodleGallery from "./components/DoodleGallery";
+import SocialLinks from "./components/SocialLinks";
 
 export default function HomeClient({ doodles }: { doodles: Doodle[] }) {
   const rowRef = useRef<HTMLDivElement>(null);
@@ -81,52 +82,19 @@ export default function HomeClient({ doodles }: { doodles: Doodle[] }) {
   }, []);
 
   return (
-    <main className="min-h-screen w-full flex flex-col items-center px-6 pt-16 pb-28 gap-1">
-      <div className="flex flex-col items-center gap-4 w-full border-b max-w-3xl pb-12 border-b-zinc-200">
+    <main className="min-h-screen w-full flex flex-col items-center px-6 pt-16 pb-28 gap-6">
+      <div className="flex flex-col items-center gap-4 w-full border-b border-dashed max-w-3xl pb-12 border-b-zinc-200">
         <div className="flex flex-row gap-4">
           <h1 className="text-2xl sm:text-3xl text-center leading-tight">
             Jackson Prince
           </h1>
-          <div className="flex items-center gap-4">
-            <a
-              href="https://github.com/SwanHub"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub"
-              className="text-zinc-600 hover:text-zinc-900 transition-colors"
-            >
-              <svg
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                className="h-4 w-4"
-                aria-hidden
-              >
-                <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55 0-.27-.01-1.17-.02-2.12-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11.04 11.04 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.25 5.67.41.35.77 1.05.77 2.12 0 1.53-.01 2.76-.01 3.14 0 .31.21.67.8.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z" />
-              </svg>
-            </a>
-            <a
-              href="https://www.linkedin.com/in/jackson-prince"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
-              className="text-zinc-600 hover:text-zinc-900 transition-colors"
-            >
-              <svg
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                className="h-4 w-4"
-                aria-hidden
-              >
-                <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.72C24 .77 23.2 0 22.22 0Z" />
-              </svg>
-            </a>
-          </div>
+          <SocialLinks />
         </div>
 
         <nav className="flex items-center gap-3 text-zinc-600">
           <Link
             href="/doodles"
-            className="hover:text-zinc-900 transition-colors underline underline-offset-4"
+            className="text-zinc-800 hover:text-zinc-500 transition-colors underline underline-offset-4 decoration-zinc-300"
           >
             Doodles
           </Link>
@@ -135,7 +103,7 @@ export default function HomeClient({ doodles }: { doodles: Doodle[] }) {
           </span>
           <Link
             href="/guides"
-            className="hover:text-zinc-900 transition-colors underline underline-offset-4 "
+            className="text-zinc-800 hover:text-zinc-500 transition-colors underline underline-offset-4 decoration-zinc-300"
           >
             Technical Guides
           </Link>

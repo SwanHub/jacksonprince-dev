@@ -57,7 +57,7 @@ export default function DoodleGallery({
             key={d.thumb}
             onClick={() => setActive(i)}
             aria-label={`open doodle from ${d.date}`}
-            className="bg-white p-2 pb-3 shadow-md hover:shadow-lg transition-shadow cursor-pointer block text-left"
+            className="shadow-md hover:shadow-lg transition-shadow cursor-pointer block text-left"
           >
             <div className="relative w-full aspect-square">
               <Image
