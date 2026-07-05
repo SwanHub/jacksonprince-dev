@@ -8,7 +8,7 @@ export default function Breadcrumbs({ current }: { current?: string }) {
         aria-label="Breadcrumb"
         className="flex items-center gap-2 text-zinc-500"
       >
-        {current ? (
+        {current && (
           <>
             <Link
               href="/"
@@ -21,10 +21,6 @@ export default function Breadcrumbs({ current }: { current?: string }) {
             </span>
             <span aria-current="page">{current}</span>
           </>
-        ) : (
-          <span aria-current="page" className="text-zinc-800">
-            Jackson Prince
-          </span>
         )}
       </nav>
 

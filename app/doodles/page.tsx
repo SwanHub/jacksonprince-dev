@@ -16,12 +16,15 @@ export default async function DoodlesPage() {
   const doodles = await getDoodles();
   return (
     <PageShell>
-      <div className="flex flex-col items-center gap-4 w-full border-b border-dashed max-w-3xl pb-12 border-b-zinc-200">
+      <div className="flex flex-col items-start gap-4 w-full border-b border-dashed max-w-3xl pb-12 border-b-zinc-200">
         <Breadcrumbs current="doodles" />
-        <h1 className="mt-8 text-2xl sm:text-3xl text-center leading-tight uppercase">
+        <h1 className="mt-8 text-2xl sm:text-3xl leading-tight">
           Daily Doodles
         </h1>
-        <h2>Your everyday Sharpie artist</h2>
+        <h2>
+          I send the first 20 minutes of every day into a sketchbook. Do you,
+          too?
+        </h2>
       </div>
 
       <DoodleGallery doodles={doodles} />

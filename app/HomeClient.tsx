@@ -84,10 +84,10 @@ export default function HomeClient({ doodles }: { doodles: Doodle[] }) {
 
   return (
     <PageShell>
-      <div className="flex flex-col items-center gap-4 w-full border-b border-dashed max-w-3xl pb-12 border-b-zinc-200">
+      <div className="flex flex-col items-start gap-4 w-full border-b border-dashed max-w-3xl pb-12 border-b-zinc-200">
         <Breadcrumbs />
-        <h1 className="mt-8 text-2xl sm:text-3xl text-center leading-tight uppercase">
-          Welcome
+        <h1 className="mt-8 text-2xl sm:text-3xl leading-tight">
+          Jackson Prince
         </h1>
 
         <nav className="flex items-center gap-3 text-zinc-600">
