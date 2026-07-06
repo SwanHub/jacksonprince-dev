@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Breadcrumbs from "../components/Breadcrumbs";
+import PageHeader from "../components/PageHeader";
 import PageShell from "../components/PageShell";
 
 export const metadata: Metadata = {
@@ -10,10 +10,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <PageShell>
-      <div className="flex flex-col items-start gap-4 w-full border-b border-dashed max-w-3xl pb-12 border-b-zinc-200">
-        <Breadcrumbs current="about" />
-        <h1 className="mt-8 text-2xl sm:text-3xl leading-tight">About</h1>
-      </div>
+      <PageHeader breadcrumb="about" title="About" />
 
       <div className="w-full max-w-xl pt-4">
         {/* About content coming soon. */}

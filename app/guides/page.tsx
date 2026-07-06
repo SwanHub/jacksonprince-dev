@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Breadcrumbs from "../components/Breadcrumbs";
+import PageHeader from "../components/PageHeader";
 import PageShell from "../components/PageShell";
 
 export const metadata: Metadata = {
@@ -28,13 +28,11 @@ const guidesByMonth: { month: string; guides: Guide[] }[] = [
 export default function GuidesPage() {
   return (
     <PageShell>
-      <div className="flex flex-col items-start gap-4 w-full border-b border-dashed max-w-3xl pb-12 border-b-zinc-200">
-        <Breadcrumbs current="guides" />
-        <h1 className="mt-8 text-2xl sm:text-3xl leading-tight">
-          Technical Guides
-        </h1>
-        <h2>Here lies a list of learnings, signed from me to you.</h2>
-      </div>
+      <PageHeader
+        breadcrumb="guides"
+        title="Technical Guides"
+        subtitle="Here lies a list of learnings, signed from me to you."
+      />
 
       <div className="w-full max-w-3xl flex flex-col gap-8 pt-4">
         {guidesByMonth.map(({ month, guides }) => (

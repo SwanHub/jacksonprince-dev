@@ -3,8 +3,8 @@
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { Doodle } from "@/lib/doodles";
-import Breadcrumbs from "./components/Breadcrumbs";
 import DoodleGallery from "./components/DoodleGallery";
+import PageHeader from "./components/PageHeader";
 import PageShell from "./components/PageShell";
 
 export default function HomeClient({ doodles }: { doodles: Doodle[] }) {
@@ -84,30 +84,28 @@ export default function HomeClient({ doodles }: { doodles: Doodle[] }) {
 
   return (
     <PageShell>
-      <div className="flex flex-col items-start gap-4 w-full border-b border-dashed max-w-3xl pb-12 border-b-zinc-200">
-        <Breadcrumbs />
-        <h1 className="mt-8 text-2xl sm:text-3xl leading-tight">
-          Jackson Prince
-        </h1>
-
-        <nav className="flex items-center gap-3 text-zinc-600">
-          <Link
-            href="/doodles"
-            className="text-zinc-800 hover:text-zinc-500 transition-colors underline underline-offset-4 decoration-zinc-300"
-          >
-            Doodles
-          </Link>
-          <span aria-hidden className="text-zinc-400">
-            {"&"}
-          </span>
-          <Link
-            href="/guides"
-            className="text-zinc-800 hover:text-zinc-500 transition-colors underline underline-offset-4 decoration-zinc-300"
-          >
-            Technical Guides
-          </Link>
-        </nav>
-      </div>
+      <PageHeader
+        title="Jackson Prince"
+        subtitle={
+          <nav className="flex items-center gap-3 text-zinc-600">
+            <Link
+              href="/doodles"
+              className="text-zinc-800 hover:text-zinc-500 transition-colors underline underline-offset-4 decoration-zinc-300"
+            >
+              Doodles
+            </Link>
+            <span aria-hidden className="text-zinc-400">
+              {"&"}
+            </span>
+            <Link
+              href="/guides"
+              className="text-zinc-800 hover:text-zinc-500 transition-colors underline underline-offset-4 decoration-zinc-300"
+            >
+              Technical Guides
+            </Link>
+          </nav>
+        }
+      />
 
       <DoodleGallery doodles={doodles} onOpenChange={onLightboxOpenChange} />
 

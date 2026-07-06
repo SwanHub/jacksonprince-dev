@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Breadcrumbs from "../components/Breadcrumbs";
 import DoodleGallery from "../components/DoodleGallery";
+import PageHeader from "../components/PageHeader";
 import PageShell from "../components/PageShell";
 import { getDoodles } from "@/lib/doodles";
 
@@ -16,15 +16,11 @@ export default async function DoodlesPage() {
   const doodles = await getDoodles();
   return (
     <PageShell>
-      <div className="flex flex-col items-start gap-4 w-full border-b border-dashed max-w-3xl pb-12 border-b-zinc-200">
-        <Breadcrumbs current="doodles" />
-        <h1 className="mt-8 text-2xl sm:text-3xl leading-tight">
-          Daily Doodles
-        </h1>
-        <h2>
-          I send the first 20 minutes of every day into a sketchbook. You, too?
-        </h2>
-      </div>
+      <PageHeader
+        breadcrumb="doodles"
+        title="Daily Doodles"
+        subtitle="I send the first 20 minutes of every day into a sketchbook. You, too?"
+      />
 
       <DoodleGallery doodles={doodles} />
     </PageShell>
