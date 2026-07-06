@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import PageShell from "../../components/PageShell";
 
 export const metadata: Metadata = {
-  title: "How to Build a Free Background Remover — Jackson Prince",
+  title: "How to Build a Free HD Image Background Remover by Jackson Prince",
 };
 
 export default function HowToBuildAFreeBackgroundRemover() {

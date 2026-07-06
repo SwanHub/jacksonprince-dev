@@ -22,8 +22,7 @@ export default async function DoodlesPage() {
           Daily Doodles
         </h1>
         <h2>
-          I send the first 20 minutes of every day into a sketchbook. Do you,
-          too?
+          I send the first 20 minutes of every day into a sketchbook. You, too?
         </h2>
       </div>
 

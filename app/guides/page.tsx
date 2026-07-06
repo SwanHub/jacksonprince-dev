@@ -4,8 +4,8 @@ import Breadcrumbs from "../components/Breadcrumbs";
 import PageShell from "../components/PageShell";
 
 export const metadata: Metadata = {
-  title: "Guides — Jackson Prince",
-  description: "Guides and articles by Jackson Prince.",
+  title: "Technical Guides by Jackson Prince",
+  description: "Technical Guides by Jackson Prince.",
 };
 
 type Guide = {
@@ -13,14 +13,13 @@ type Guide = {
   href: string;
 };
 
-// Guides grouped by month, newest first.
 const guidesByMonth: { month: string; guides: Guide[] }[] = [
   {
     month: "July 2026",
     guides: [
       {
-        title: "How to Build a Free Background Remover",
-        href: "/guides/how-to-build-a-free-background-remover",
+        title: "How to Build a Free HD Image Background Remover Using SAM3",
+        href: "/guides/how-to-build-a-free-hd-image-background-remover-using-sam3",
       },
     ],
   },
