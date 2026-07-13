@@ -98,10 +98,10 @@ export default function HomeClient({ doodles }: { doodles: Doodle[] }) {
               {"&"}
             </span>
             <Link
-              href="/guides"
+              href="/writing"
               className="text-zinc-800 hover:text-zinc-500 transition-colors underline underline-offset-4 decoration-zinc-300"
             >
-              Technical Guides
+              Writing
             </Link>
           </nav>
         }
