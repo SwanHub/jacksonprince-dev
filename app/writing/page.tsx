@@ -31,7 +31,7 @@ export default function WritingPage() {
       <PageHeader
         breadcrumb="writing"
         title="Writing"
-        subtitle="my writing, order by timestamp desc"
+        subtitle="I wrap my personal projects into technical guides, then share them here."
       />
 
       <div className="w-full max-w-3xl flex flex-col gap-8 pt-4">

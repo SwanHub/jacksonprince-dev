@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import CopyButton from "./CopyButton";
 
@@ -18,6 +19,39 @@ export default function Article({
   );
 }
 
+export function Figure({
+  src,
+  alt,
+  width,
+  height,
+  caption,
+  priority,
+}: {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  caption?: string;
+  priority?: boolean;
+}) {
+  return (
+    <figure className="w-full flex flex-col gap-2">
+      <Image
+        src={src}
+        alt={alt}
+        width={width}
+        height={height}
+        priority={priority}
+        sizes="(max-width: 640px) 100vw, 576px"
+        className="w-full h-auto rounded-md border border-zinc-200"
+      />
+      {caption && (
+        <figcaption className="text-sm text-zinc-500">{caption}</figcaption>
+      )}
+    </figure>
+  );
+}
+
 export function H2({
   id,
   children,
@@ -32,8 +66,18 @@ export function H2({
   );
 }
 
-export function H3({ children }: { children: React.ReactNode }) {
-  return <h3 className="pt-2 text-lg sm:text-xl leading-tight">{children}</h3>;
+export function H3({
+  id,
+  children,
+}: {
+  id?: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <h3 id={id} className="pt-2 text-lg sm:text-xl leading-tight scroll-mt-6">
+      {children}
+    </h3>
+  );
 }
 
 export function P({ children }: { children: React.ReactNode }) {
