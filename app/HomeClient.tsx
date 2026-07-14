@@ -85,14 +85,14 @@ export default function HomeClient({ doodles }: { doodles: Doodle[] }) {
   return (
     <PageShell>
       <PageHeader
-        title="Jackson Prince"
+        title="jackson prince"
         subtitle={
           <nav className="flex items-center gap-3 text-zinc-600">
             <Link
-              href="/doodles"
+              href="/art"
               className="text-zinc-800 hover:text-zinc-500 transition-colors underline underline-offset-4 decoration-zinc-300"
             >
-              Doodles
+              artist
             </Link>
             <span aria-hidden className="text-zinc-400">
               {"&"}
@@ -101,7 +101,7 @@ export default function HomeClient({ doodles }: { doodles: Doodle[] }) {
               href="/writing"
               className="text-zinc-800 hover:text-zinc-500 transition-colors underline underline-offset-4 decoration-zinc-300"
             >
-              Writing
+              engineer
             </Link>
           </nav>
         }

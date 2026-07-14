@@ -2,7 +2,13 @@
 
 import { useState } from "react";
 
-export default function CopyButton({ text }: { text: string }) {
+export default function CopyButton({
+  text,
+  className = "top-2 right-2",
+}: {
+  text: string;
+  className?: string;
+}) {
   const [copied, setCopied] = useState(false);
 
   async function copy() {
@@ -16,7 +22,7 @@ export default function CopyButton({ text }: { text: string }) {
       type="button"
       onClick={copy}
       aria-label={copied ? "Copied" : "Copy code"}
-      className="absolute top-2 right-2 rounded-md p-1.5 bg-zinc-50 text-zinc-400 hover:text-zinc-600 transition-colors"
+      className={`absolute rounded-md p-1.5 bg-zinc-50 text-zinc-400 hover:text-zinc-600 transition-colors ${className}`}
     >
       {copied ? (
         <svg

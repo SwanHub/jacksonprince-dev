@@ -8,8 +8,8 @@ import { getDoodles } from "@/lib/doodles";
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: "Daily Doodles by Jackson Prince",
-  description: "Daily Doodles by Jackson Prince.",
+  title: "Art by Jackson Prince",
+  description: "Art by Jackson Prince.",
 };
 
 export default async function DoodlesPage() {
@@ -17,9 +17,9 @@ export default async function DoodlesPage() {
   return (
     <PageShell>
       <PageHeader
-        breadcrumb="doodles"
-        title="Daily Doodles"
-        subtitle="I send the first 20 minutes of every day into a sketchbook. You, too?"
+        breadcrumb="art"
+        title="Art"
+        subtitle="I send the first 20 minutes of every day into a sketchbook."
       />
 
       <DoodleGallery doodles={doodles} />

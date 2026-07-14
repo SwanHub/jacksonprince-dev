@@ -1,6 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
 import CopyButton from "./CopyButton";
+
+export { Figure } from "./Figure";
 
 export default function Article({
   id,
@@ -16,39 +17,6 @@ export default function Article({
     >
       {children}
     </article>
-  );
-}
-
-export function Figure({
-  src,
-  alt,
-  width,
-  height,
-  caption,
-  priority,
-}: {
-  src: string;
-  alt: string;
-  width: number;
-  height: number;
-  caption?: string;
-  priority?: boolean;
-}) {
-  return (
-    <figure className="w-full flex flex-col gap-2">
-      <Image
-        src={src}
-        alt={alt}
-        width={width}
-        height={height}
-        priority={priority}
-        sizes="(max-width: 640px) 100vw, 576px"
-        className="w-full h-auto rounded-md border border-zinc-200"
-      />
-      {caption && (
-        <figcaption className="text-sm text-zinc-500">{caption}</figcaption>
-      )}
-    </figure>
   );
 }
 
@@ -104,13 +72,23 @@ export function Code({ children }: { children: React.ReactNode }) {
   );
 }
 
-export function CodeBlock({ code }: { code: string }) {
+export function CodeBlock({ code, file }: { code: string; file?: string }) {
   return (
     <div className="relative w-full">
-      <pre className="w-full overflow-x-auto rounded-md border border-dashed border-zinc-200 bg-zinc-50 p-4 pr-12 font-mono text-sm leading-relaxed">
-        <code>{code}</code>
-      </pre>
-      <CopyButton text={code} />
+      <div className="w-full overflow-hidden rounded-md border border-dashed border-zinc-200 bg-zinc-50">
+        {file && (
+          <div className="border-b border-dashed border-zinc-200 px-4 py-2 font-mono text-xs text-zinc-500">
+            {file}
+          </div>
+        )}
+        <pre className="w-full overflow-x-auto p-4 pr-12 font-mono text-sm leading-relaxed">
+          <code>{code}</code>
+        </pre>
+      </div>
+      <CopyButton
+        text={code}
+        className={file ? "top-1 right-2" : "top-2 right-2"}
+      />
     </div>
   );
 }

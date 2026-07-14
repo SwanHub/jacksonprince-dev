@@ -20,10 +20,13 @@ export default function Breadcrumbs({
               href="/"
               className="shrink-0 text-zinc-800 hover:text-zinc-500 transition-colors underline underline-offset-4 decoration-zinc-300"
             >
-              Jackson Prince
+              jackson prince
             </Link>
             {trail.map((item) => (
-              <span key={item.href} className="flex items-center gap-2 shrink-0">
+              <span
+                key={item.href}
+                className="flex items-center gap-2 shrink-0"
+              >
                 <span aria-hidden className="text-zinc-400">
                   /
                 </span>
@@ -39,7 +42,9 @@ export default function Breadcrumbs({
               /
             </span>
             <span aria-current="page" className="whitespace-nowrap">
-              {current.length > 20 ? `${current.slice(0, 20).trimEnd()}...` : current}
+              {current.length > 20
+                ? `${current.slice(0, 20).trimEnd()}...`
+                : current}
             </span>
           </>
         )}

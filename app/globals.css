@@ -41,8 +41,13 @@ body {
 }
 
 @keyframes sprite-jump {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-48px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-48px);
+  }
 }
 
 .animate-sprite-jump {
