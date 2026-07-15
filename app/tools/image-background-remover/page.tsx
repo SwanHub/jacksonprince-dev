@@ -37,7 +37,7 @@ export default async function ImageBackgroundRemoverPage() {
         <BgRemover />
 
         <p className="text-sm text-zinc-500">
-          Curious how it works? I wrote about building it in{" "}
+          Tool featured in{" "}
           <Link
             href={ARTICLE_HREF}
             className="text-zinc-800 hover:text-zinc-500 transition-colors underline underline-offset-4 decoration-zinc-300"
