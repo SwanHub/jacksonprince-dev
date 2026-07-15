@@ -87,21 +87,26 @@ export default function HomeClient({ doodles }: { doodles: Doodle[] }) {
       <PageHeader
         title="jackson prince"
         subtitle={
-          <nav className="flex items-center gap-3 text-zinc-600">
+          <nav className="text-zinc-600">
             <Link
               href="/art"
               className="text-zinc-800 hover:text-zinc-500 transition-colors underline underline-offset-4 decoration-zinc-300"
             >
-              artist
+              art
             </Link>
-            <span aria-hidden className="text-zinc-400">
-              {"&"}
-            </span>
+            {" , "}
             <Link
               href="/writing"
               className="text-zinc-800 hover:text-zinc-500 transition-colors underline underline-offset-4 decoration-zinc-300"
             >
-              engineer
+              writing
+            </Link>
+            {" , "}
+            <Link
+              href="/tools"
+              className="text-zinc-800 hover:text-zinc-500 transition-colors underline underline-offset-4 decoration-zinc-300"
+            >
+              tools
             </Link>
           </nav>
         }

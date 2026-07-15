@@ -49,12 +49,12 @@ export default async function ImageBackgroundRemoverPage() {
 
         <section className="flex flex-col gap-3">
           <h2 className="uppercase text-xs font-light tracking-widest text-zinc-500">
-            Recent cutouts
+            Recent
           </h2>
           {uploads.length === 0 ? (
             <p className="text-sm text-zinc-400">
-              Nothing here yet — run an image through the tool above and it
-              will show up here.
+              Nothing here yet — run an image through the tool above and it will
+              show up here.
             </p>
           ) : (
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6">

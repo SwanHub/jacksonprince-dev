@@ -17,6 +17,7 @@ import PageHeader from "../../components/PageHeader";
 import PageShell from "../../components/PageShell";
 import ShareLinks from "../../components/ShareLinks";
 import BgRemover from "../../components/BgRemover";
+import RleVisualizer from "./RleVisualizer";
 
 export const metadata: Metadata = {
   title: "How to Build a Free HD Image Background Remover in 5 Minutes",
@@ -86,7 +87,7 @@ export default function HowToBuildAFreeBackgroundRemover() {
             you’re in the right place. Welcome.
           </P> */}
           <H2 id="resources">Resources</H2>
-          <P>Many of you may simply want the code.</P>
+          <P>You may simply want the code.</P>
           <UL>
             <li>
               <A href="https://github.com/swanhub/bg-remover">Fork the code</A>{" "}
@@ -574,7 +575,7 @@ export function decodeRLEMask({
             certain size, creates a mask.
           </P>
           <P>Visualize RLE mask decoding on a 16x16 grid:</P>
-          {/* Interactive placeholder: RLE mask decoding visualizer (16x16 grid) */}
+          <RleVisualizer />
 
           <H3>[2] How do we “make pixels transparent”?</H3>
           <P>

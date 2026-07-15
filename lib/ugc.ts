@@ -1,4 +1,6 @@
-export const UGC_BUCKET = process.env.SUPABASE_UGC_BUCKET ?? "jdp-ugc-uploads";
+// UGC lives in a folder inside the shared assets bucket.
+export const UGC_BUCKET = process.env.SUPABASE_ASSETS_BUCKET ?? "assets";
+export const UGC_FOLDER = "bg-remover-ugc";
 
 export const UGC_TABLE = "jdp_ugc_uploads";
 

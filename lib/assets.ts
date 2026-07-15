@@ -26,7 +26,8 @@ export async function listAssets(): Promise<Asset[]> {
     if (error) throw error;
 
     return (data ?? [])
-      .filter((file) => file.name && !file.name.startsWith("."))
+      // `id` is null for folder entries (e.g. the UGC folder) — skip those.
+      .filter((file) => file.id && file.name && !file.name.startsWith("."))
       .map((file) => ({
         name: file.name,
         url: supabase.storage.from(ASSETS_BUCKET).getPublicUrl(file.name).data

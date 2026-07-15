@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { getStorageClient } from "../../../../lib/assets";
-import { UGC_BUCKET, UGC_TABLE } from "../../../../lib/ugc";
+import { UGC_BUCKET, UGC_FOLDER, UGC_TABLE } from "../../../../lib/ugc";
 
 const MAX_IMAGE_BYTES = 30 * 1024 * 1024;
 
@@ -32,8 +32,8 @@ export async function POST(request: Request) {
 
   const base = `${Date.now()}-${crypto.randomUUID().slice(0, 8)}`;
   const originalExt = original.type.split("/")[1]?.split("+")[0] || "png";
-  const originalPath = `${base}-original.${originalExt}`;
-  const resultPath = `${base}-cutout.png`;
+  const originalPath = `${UGC_FOLDER}/${base}-original.${originalExt}`;
+  const resultPath = `${UGC_FOLDER}/${base}-cutout.png`;
 
   const bucket = supabase.storage.from(UGC_BUCKET);
   const uploads = await Promise.all([
