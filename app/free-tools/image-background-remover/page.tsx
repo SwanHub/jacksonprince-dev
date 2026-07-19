@@ -27,17 +27,17 @@ export default async function ImageBackgroundRemoverPage() {
   return (
     <PageShell>
       <PageHeader
-        breadcrumbTrail={[{ label: "tools", href: "/tools" }]}
+        breadcrumbTrail={[{ label: "free-tools", href: "/free-tools" }]}
         breadcrumb="image background remover"
         title="HD Image Background Remover"
-        subtitle="Drop an image, type what to keep, get a lossless cutout."
+        subtitle="Remove.bg clone, but high-def."
       />
 
       <div className="w-full max-w-3xl flex flex-col gap-12 pt-4">
         <BgRemover />
 
         <p className="text-sm text-zinc-500">
-          Tool featured in{" "}
+          From article:{" "}
           <Link
             href={ARTICLE_HREF}
             className="text-zinc-800 hover:text-zinc-500 transition-colors underline underline-offset-4 decoration-zinc-300"
@@ -49,7 +49,7 @@ export default async function ImageBackgroundRemoverPage() {
 
         <section className="flex flex-col gap-3">
           <h2 className="uppercase text-xs font-light tracking-widest text-zinc-500">
-            Recent
+            Community Gallery
           </h2>
           {uploads.length === 0 ? (
             <p className="text-sm text-zinc-400">

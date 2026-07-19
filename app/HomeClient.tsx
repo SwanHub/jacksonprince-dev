@@ -103,10 +103,10 @@ export default function HomeClient({ doodles }: { doodles: Doodle[] }) {
             </Link>
             {" , "}
             <Link
-              href="/tools"
+              href="/free-tools"
               className="text-zinc-800 hover:text-zinc-500 transition-colors underline underline-offset-4 decoration-zinc-300"
             >
-              tools
+              free tools
             </Link>
           </nav>
         }

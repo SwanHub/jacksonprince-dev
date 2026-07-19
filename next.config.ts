@@ -14,6 +14,16 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/tools",
+        destination: "/free-tools",
+        permanent: true,
+      },
+      {
+        source: "/tools/:slug*",
+        destination: "/free-tools/:slug*",
+        permanent: true,
+      },
+      {
         source: "/writing/how-to-build-a-free-hd-image-background-remover-using-sam3",
         destination:
           "/writing/how-to-build-a-free-hd-image-background-remover-in-5-minutes",

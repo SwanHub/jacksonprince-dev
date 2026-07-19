@@ -17,7 +17,10 @@ import PageHeader from "../../components/PageHeader";
 import PageShell from "../../components/PageShell";
 import ShareLinks from "../../components/ShareLinks";
 import BgRemover from "../../components/BgRemover";
+import CopyPrompt from "../../components/CopyPrompt";
 import RleVisualizer from "./RleVisualizer";
+import ArchitectureDiagram from "./ArchitectureDiagram";
+import { Bot } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "How to Build a Free HD Image Background Remover in 5 Minutes",
@@ -29,6 +32,7 @@ const toc = [
   { id: "intro", label: "Intro" },
   { id: "try-it", label: "Try the remover" },
   { id: "resources", label: "Resources" },
+  { id: "technical-overview", label: "Technical overview" },
   { id: "step-1", label: "1. Next.js app" },
   { id: "step-2", label: "2. SAM3 Workflow" },
   { id: "step-3", label: "3. Connect & test" },
@@ -59,7 +63,7 @@ export default function HowToBuildAFreeBackgroundRemover() {
         <Article id="intro">
           <P>
             In this brief guide, I’ll teach you how to create your own HD image
-            background remover that you can use 10 thousand times a month for
+            background remover that you can use ten thousand times a month for
             free. All you need is{" "}
             <A href="https://ai.meta.com/research/sam3/">SAM3</A>,{" "}
             <A href="https://roboflow.com/">Roboflow</A> and 5 minutes.
@@ -79,52 +83,56 @@ export default function HowToBuildAFreeBackgroundRemover() {
           <P>Crisp.</P>
           <Divider />
           <H2 id="try-it">Try it yourself</H2>
-          <P>Drop an image or select an example image to test it out.</P>
+          <P>Drop or select an example image to test it out.</P>
           <BgRemover />
-          {/* <P>
-            If you’re with me in that niche of all niches, looking for a{" "}
-            <strong>free, lossless image background remover</strong>, then
-            you’re in the right place. Welcome.
-          </P> */}
           <H2 id="resources">Resources</H2>
-          <P>You may simply want the code.</P>
-          <UL>
-            <li>
-              <A href="https://github.com/swanhub/bg-remover">Fork the code</A>{" "}
-              + follow setup instructions in the README.
+          <ul className="flex flex-col gap-2">
+            <li className="flex items-center gap-3">
+              <svg
+                aria-hidden
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                className="h-4 w-4 shrink-0 text-zinc-400"
+              >
+                <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+              </svg>
+              <A href="https://github.com/swanhub/bg-remover">Fork the code</A>
             </li>
-            <li>
-              Or tell your local AI agent to read and replicate this article.
+            <li className="flex items-center gap-3">
+              <Bot aria-hidden className="h-4 w-4 shrink-0 text-zinc-400" />
+              <CopyPrompt prompt="Read https://jacksonprince.dev/writing/how-to-build-a-free-hd-image-background-remover-in-5-minutes and replicate it.">
+                Let your agent do it
+              </CopyPrompt>
             </li>
-            <li>
-              Watch me speedrun this project on{" "}
-              <A href="https://youtube.com/">YouTube</A>.
+            <li className="flex items-center gap-3">
+              <svg
+                aria-hidden
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                className="h-4 w-4 shrink-0 text-zinc-400"
+              >
+                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+              </svg>
+              <A href="https://youtube.com/">Watch YouTube Speedrun</A>
             </li>
-          </UL>
+          </ul>
+          <H2 id="technical-overview">Technical Overview</H2>
+          <P>
+            This app is one React page, one API route, a Workflow in Roboflow,
+            and a JS utility function for the final background removal.
+          </P>
+          <ArchitectureDiagram />
+          <P>Let&apos;s begin.</P>
           <Divider />
 
-          {/* <P>
-            <strong>4 Simple Steps</strong>
-          </P>
-          <OL>
-            <li>Create a Next.js web app</li>
-            <li>Setup a SAM3 Workflow in Roboflow</li>
-            <li>Connect the app to the workflow and test</li>
-            <li>
-              Apply a <Code>removeBg</Code> JS utility
-            </li>
-          </OL> */}
-
-          {/* <Divider /> */}
-
           <H2 id="step-1">Step 1: Create a simple Next.js web app</H2>
-          <P>Create a brand new Nextjs app:</P>
+          <P>Create a brand new Nextjs app.</P>
           <Cmd>npx create-next-app@latest hd-background-remover</Cmd>
-          <P>Navigate to the new project:</P>
+          <P>Navigate to the new project.</P>
           <Cmd>cd hd-background-remover</Cmd>
           <P>
             Replace the boilerplate code in <Code>/app/page.tsx</Code> with an
-            input form that takes in:
+            input form that accepts an image and a text prompt.
           </P>
           <CodeBlock
             file="/app/page.tsx"
@@ -147,7 +155,7 @@ export default function HowToBuildAFreeBackgroundRemover() {
   );
 }`}
           />
-          <P>Spin up the website locally:</P>
+          <P>Spin up the website locally.</P>
           <Cmd>npm run dev</Cmd>
           <P>
             What that looks like at <Code>http://localhost:3000</Code>
@@ -158,9 +166,7 @@ export default function HowToBuildAFreeBackgroundRemover() {
             width={3374}
             height={2198}
           />
-          <P>
-            Truly beautiful. Your grandkids' grandkids will speak of this UI.
-          </P>
+          <P>Groundbreaking UI. 👌</P>
 
           <Divider />
 
@@ -170,8 +176,9 @@ export default function HowToBuildAFreeBackgroundRemover() {
           </P>
           <P>
             Of course, if you are positively allergic to signing up for free
-            things, then you can request access to the model weights through
-            HuggingFace and follow the setup instructions on the{" "}
+            things, then you can request access to the model weights through{" "}
+            <A href="https://huggingface.co/facebook/sam3">HuggingFace</A> and
+            follow the setup instructions on the{" "}
             <A href="https://github.com/facebookresearch/sam3">SAM3 repo</A>.
           </P>
           <P>
@@ -220,23 +227,19 @@ export default function HowToBuildAFreeBackgroundRemover() {
           />
           <P>
             That purple hue outlining the horse is a pixel-perfect mask created
-            by SAM3. It is predicting where the horse is in the image, then we
-            use a Mask Visualization workflow block to render the mask on top of
-            the original image.
-          </P>
-          <P>
-            Hit <Code>Publish</Code> and you’re done. 🎉 You now have a live API
-            endpoint that accepts an image and text, and returns the exact
-            coordinates of whatever you describe, wherever it appears.
+            by SAM3. Hit <Code>Publish</Code> and you’re done. 🎉 You now have a
+            live API endpoint that accepts an image and text, and returns the
+            exact coordinates of whatever you describe, wherever it appears.
           </P>
 
           <Divider />
 
           <H2 id="step-3">Step 3: Connect Workflow to Website</H2>
           <P>
-            To connect the workflow to your website, click the big purple Deploy
-            button and copy the JavaScript fetch code. It includes the url to
-            hit, as well as the POST body and your workspace API key:
+            To connect the workflow to your website, click the purple{" "}
+            <Code>Deploy</Code> button in the top righthand corner, then copy
+            the JavaScript Fetch code. It includes everything you need to run
+            inference from afar: url, POST body and workspace API key.
           </P>
           <Figure
             src="https://fkysszwiasduklapfzoe.supabase.co/storage/v1/object/public/jp-site-media/1783997680171-step_5_new.png"
@@ -246,10 +249,7 @@ export default function HowToBuildAFreeBackgroundRemover() {
           />
           <P>
             Create a new server-side route in your Nextjs app and paste in the
-            JS fetch info:
-          </P>
-          <P>
-            In <Code>app/api/infer/route.tsx</Code> write the server handler:
+            JavaScript Fetch block.
           </P>
           <CodeBlock
             file="app/api/infer/route.tsx"
@@ -264,7 +264,7 @@ export default function HowToBuildAFreeBackgroundRemover() {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        api_key: API**********,
+        api_key: "YOUR_API_KEY",
         inputs: {
           image: {
             type: "base64",
@@ -311,10 +311,7 @@ export default function HowToBuildAFreeBackgroundRemover() {
               <A href="#rle">[1]</A>
             </sup>
           </P>
-          <P>
-            Declare the shape of that incoming data in{" "}
-            <Code>app/lib/types.ts</Code>:
-          </P>
+          <P>Declare the shape of that incoming data.</P>
           <CodeBlock
             file="app/lib/types.ts"
             code={`export type Sam3Predictions = {
@@ -328,9 +325,8 @@ export type RLEMask = {
 };`}
           />
           <P>
-            Create a new utility file <Code>app/lib/removeBg.ts</Code> that
-            holds our <Code>removeBg()</Code> orchestrator, which consists of
-            three helper functions:
+            Create a new utility file <Code>app/lib/removeBg.ts</Code>, where
+            <Code>removeBg()</Code> consists of three helper functions:
           </P>
           <UL>
             <li>
@@ -346,9 +342,6 @@ export type RLEMask = {
               transparency.
             </li>
           </UL>
-          <P>
-            Write the orchestrator in <Code>app/lib/removeBg.ts</Code>:
-          </P>
           <CodeBlock
             file="app/lib/removeBg.ts"
             code={`export async function removeBg(
@@ -360,7 +353,7 @@ export type RLEMask = {
   return encodePNG(cutout);
 }`}
           />
-          <P>Let’s walk through each helper function, one by one.</P>
+          <P>Let’s walk through each helper.</P>
 
           <H3>
             Step 1: <Code>buildMask()</Code>
@@ -368,9 +361,6 @@ export type RLEMask = {
           <P>
             Create a base canvas element that is the size of the original image,
             then decode and draw each SAM3 mask onto it.
-          </P>
-          <P>
-            In <Code>app/lib/removeBg.ts</Code> write:
           </P>
           <CodeBlock
             file="app/lib/removeBg.ts"
@@ -395,9 +385,6 @@ export type RLEMask = {
             dedicated file. Create a new utility file{" "}
             <Code>app/lib/decodeRLEMask.ts</Code> and port in the RLE Mask
             decoder logic from pycocotools.
-          </P>
-          <P>
-            In <Code>app/lib/decodeRLEMask.ts</Code> write:
           </P>
           <CodeBlock
             file="app/lib/decodeRLEMask.ts"
@@ -458,9 +445,6 @@ export function decodeRLEMask({
             <Code>buildMask()</Code>, and lay it flat on top of our original
             image, then perform a destination-in cutout using Canvas API.
           </P>
-          <P>
-            In <Code>app/lib/removeBg.ts</Code> write:
-          </P>
           <CodeBlock
             file="app/lib/removeBg.ts"
             code={`async function applyMask(
@@ -493,9 +477,6 @@ export function decodeRLEMask({
           <P>
             Last and easiest step: make sure the image you just created is
             encoded as a PNG to retain alpha channels (transparency).
-          </P>
-          <P>
-            In <Code>app/lib/removeBg.ts</Code> write:
           </P>
           <CodeBlock
             file="app/lib/removeBg.ts"
@@ -593,12 +574,12 @@ export function decodeRLEMask({
             calculated as:
           </P>
           <P>
-            <em>50% of the color, plus 50% of whatever is below it</em>
+            <em>50% of the color + 50% of whatever is below it</em>
           </P>
           <P>
             Concretely, if the top RGB layer is <Code>[255,255,255,0.5]</Code>{" "}
             (white, 50% transparency) and the layer beneath is{" "}
-            <Code>[0,0,0,1]</Code> (black), then the resulting color is:
+            <Code>[0,0,0,1]</Code> (black), then the math is this:
           </P>
           <CodeBlock
             code={`R = (0.5 × 255) + (0.5 × 0) = 127.5
@@ -606,7 +587,7 @@ G = (0.5 × 255) + (0.5 × 0) = 127.5
 B = (0.5 × 255) + (0.5 × 0) = 127.5`}
           />
           <P>
-            That is, roughly: <Code>[128, 128, 128]</Code>, or “gray”.
+            Or roughly “gray” <Code>[128, 128, 128]</Code>.
           </P>
         </Article>
       </div>
