@@ -4,7 +4,7 @@ import Article, {
   Cmd,
   Code,
   CodeBlock,
-  Divider,
+  DividerSerif,
   Figure,
   H2,
   H3,
@@ -37,6 +37,7 @@ const toc = [
   { id: "step-2", label: "2. SAM3 Workflow" },
   { id: "step-3", label: "3. Connect & test" },
   { id: "step-4", label: "4. removeBg utility" },
+  { id: "step-5", label: "5. Visualize & export" },
   { id: "run-it", label: "Run it" },
   { id: "qa", label: "Q&A" },
 ];
@@ -81,7 +82,7 @@ export default function HowToBuildAFreeBackgroundRemover() {
             priority
           />
           <P>Crisp.</P>
-          <Divider />
+          <DividerSerif variant="comment" flanked />
           <H2 id="try-it">Try it yourself</H2>
           <P>Drop or select an example image to test it out.</P>
           <BgRemover />
@@ -123,7 +124,7 @@ export default function HowToBuildAFreeBackgroundRemover() {
           </P>
           <ArchitectureDiagram />
           <P>Let&apos;s begin.</P>
-          <Divider />
+          <DividerSerif variant="comment" flanked />
 
           <H2 id="step-1">Step 1: Create a simple Next.js web app</H2>
           <P>Create a brand new Nextjs app.</P>
@@ -168,7 +169,7 @@ export default function HowToBuildAFreeBackgroundRemover() {
           />
           <P>Groundbreaking UI. 👌</P>
 
-          <Divider />
+          <DividerSerif variant="comment" flanked />
 
           <H2 id="step-2">Step 2: Setup SAM3 Workflow in Roboflow</H2>
           <P>
@@ -232,7 +233,7 @@ export default function HowToBuildAFreeBackgroundRemover() {
             exact coordinates of whatever you describe, wherever it appears.
           </P>
 
-          <Divider />
+          <DividerSerif variant="comment" flanked />
 
           <H2 id="step-3">Step 3: Connect Workflow to Website</H2>
           <P>
@@ -285,14 +286,19 @@ export default function HowToBuildAFreeBackgroundRemover() {
             and hit Submit. You should see a wall of JSON returned in a new tab{" "}
             <Code>localhost:3000/api/infer</Code>:
           </P>
-          {/*  */}
+          <Figure
+            src="https://fkysszwiasduklapfzoe.supabase.co/storage/v1/object/public/jp-site-media/1783997103579-step_6.png"
+            alt="A wall of raw JSON from the workflow rendered at localhost:3000/api/infer"
+            width={3374}
+            height={2198}
+          />
           <P>That wall of JSON means it’s working 🎉</P>
           <P>
             Client is connected to server is connected to Roboflow and back.
             You’re getting pixel-perfect SAM3 predictions.
           </P>
 
-          <Divider />
+          <DividerSerif variant="comment" flanked />
 
           <H2 id="step-4">
             Step 4: Apply a <Code>removeBg</Code> utility
@@ -491,7 +497,75 @@ export function decodeRLEMask({
 }`}
           />
 
-          <Divider />
+          <DividerSerif variant="comment" flanked />
+
+          <H2 id="step-5">Step 5: Visualize and export</H2>
+          <CodeBlock
+            file="/app/page.tsx"
+            code={`"use client";
+
+import { useState, type FormEvent } from "react";
+import { removeBg } from "./lib/removeBg";
+
+export default function Home() {
+  const [original, setOriginal] = useState<string | null>(null);
+  const [cutout, setCutout] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const form = new FormData(event.currentTarget);
+    const image = form.get("image") as File;
+
+    setLoading(true);
+    try {
+      const response = await fetch("/api/infer", {
+        method: "POST",
+        body: form,
+      });
+      const result = await response.json();
+
+      const png = await removeBg(image, result.outputs[0].predictions);
+      setOriginal(URL.createObjectURL(image));
+      setCutout(URL.createObjectURL(png));
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  return (
+    <div className="flex flex-col grow items-center justify-center gap-8">
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-col items-center gap-1"
+      >
+        <input type="file" name="image" accept="image/*" className="border" />
+        <input type="text" name="prompts" className="border" />
+        <button
+          type="submit"
+          disabled={loading}
+          className="border disabled:opacity-50"
+        >
+          {loading ? "Removing…" : "Submit"}
+        </button>
+      </form>
+      {original && cutout && (
+        <div className="flex flex-col items-center gap-4">
+          <div className="flex items-start gap-4">
+            <img src={original} alt="Original" className="max-w-sm" />
+            <img src={cutout} alt="Background removed" className="max-w-sm" />
+          </div>
+          <a href={cutout} download="cutout.png" className="border">
+            Download
+          </a>
+        </div>
+      )}
+    </div>
+  );
+}`}
+          />
+
+          <DividerSerif variant="comment" flanked />
 
           <H2 id="run-it">▶️ Run it</H2>
           <P>You have everything you need:</P>
@@ -521,7 +595,7 @@ export function decodeRLEMask({
             applied some basic styling and reactivity.
           </P>
 
-          <Divider />
+          <DividerSerif variant="comment" flanked />
 
           <H2 id="qa">Questions and Answers</H2>
           <P>

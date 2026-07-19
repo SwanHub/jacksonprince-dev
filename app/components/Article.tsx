@@ -53,7 +53,91 @@ export function P({ children }: { children: React.ReactNode }) {
 }
 
 export function Divider() {
-  return <hr className="w-full border-t border-dashed border-zinc-200 my-2" />;
+  return <hr className="w-full border-t border-zinc-200 my-2" />;
+}
+
+const ornamentSerif =
+  'Baskerville, "Baskerville Old Face", "Libre Baskerville", Georgia, serif';
+
+export type DividerSerifVariant =
+  | "asterism"
+  | "dinkus"
+  | "fleuron"
+  | "hedera"
+  | "diamond"
+  | "dots"
+  | "tag"
+  | "braces"
+  | "comment"
+  | "arrow"
+  | "tilde"
+  | "rule";
+
+export function DividerSerif({
+  variant = "asterism",
+  flanked = false,
+}: {
+  variant?: DividerSerifVariant;
+  flanked?: boolean;
+}) {
+  if (variant === "rule") {
+    return <hr className="w-16 mx-auto border-t border-zinc-200 my-2" />;
+  }
+
+  const ornaments: Record<
+    Exclude<DividerSerifVariant, "rule">,
+    { char: string; className: string; mono?: boolean }
+  > = {
+    asterism: { char: "⁂", className: "text-xl" },
+    dinkus: {
+      char: "*_*",
+      className: "text-xl tracking-[0.4em] -mr-[0.4em] translate-y-[0.25em]",
+    },
+    fleuron: { char: "❦", className: "text-lg" },
+    hedera: { char: "❧", className: "text-lg" },
+    diamond: { char: "* *", className: "text-xl" },
+    dots: {
+      char: "*",
+      className: "text-2xl tracking-[0.4em] text-blue-400 -mr-[0.4em]",
+    },
+    tag: { char: "</>", className: "font-mono text-sm", mono: true },
+    braces: { char: "{}", className: "font-mono text-sm", mono: true },
+    comment: {
+      char: "/ /",
+      className: "text-xs",
+      // mono: true,
+    },
+    arrow: { char: "=>", className: "font-mono text-sm", mono: true },
+    tilde: { char: "~", className: "font-mono text-base", mono: true },
+  };
+  const { char, className, mono } = ornaments[variant];
+
+  return (
+    <div
+      role="separator"
+      className="flex w-full items-center justify-center gap-3 my-2 select-none text-zinc-400"
+    >
+      {flanked && (
+        <span
+          aria-hidden
+          className="flex-1 h-px bg-linear-to-r from-transparent to-zinc-200"
+        />
+      )}
+      <span
+        aria-hidden
+        className={className}
+        style={mono ? undefined : { fontFamily: ornamentSerif }}
+      >
+        {char}
+      </span>
+      {flanked && (
+        <span
+          aria-hidden
+          className="flex-1 h-px bg-linear-to-l from-transparent to-zinc-200"
+        />
+      )}
+    </div>
+  );
 }
 
 export function UL({ children }: { children: React.ReactNode }) {
@@ -75,13 +159,13 @@ export function Code({ children }: { children: React.ReactNode }) {
 export function CodeBlock({ code, file }: { code: string; file?: string }) {
   return (
     <div className="relative w-full">
-      <div className="w-full overflow-hidden rounded-md border border-dashed border-zinc-200 bg-zinc-50">
+      <div className="w-full overflow-hidden rounded-md border border-zinc-100 bg-zinc-50">
         {file && (
-          <div className="border-b border-dashed border-zinc-200 px-4 py-2 font-mono text-xs text-zinc-500">
+          <div className="border-b border-zinc-100 px-4 py-2 font-mono text-xs text-zinc-500">
             {file}
           </div>
         )}
-        <pre className="w-full overflow-x-auto p-4 pr-12 font-mono text-sm leading-relaxed">
+        <pre className="w-full overflow-x-auto p-4 pr-12 font-mono text-sm leading-relaxed text-sky-800">
           <code>{code}</code>
         </pre>
       </div>
@@ -96,7 +180,7 @@ export function CodeBlock({ code, file }: { code: string; file?: string }) {
 export function Cmd({ children }: { children: string }) {
   return (
     <div className="relative w-full">
-      <pre className="w-full overflow-x-auto rounded-md border border-dashed border-zinc-200 bg-zinc-50 px-4 py-3 pr-12 font-mono text-sm">
+      <pre className="w-full overflow-x-auto rounded-md border border-zinc-100 bg-zinc-50 px-4 py-3 pr-12 font-mono text-sm text-sky-800">
         <code>
           <span aria-hidden className="text-zinc-400 select-none">
             ~{" "}

@@ -38,7 +38,7 @@ const STEPS: Step[] = [
 
 export default function ArchitectureDiagram() {
   return (
-    <ol className="w-full flex flex-col list-none rounded-md border border-dashed border-zinc-200 bg-zinc-50 p-4 font-mono">
+    <ol className="w-full flex flex-col list-none rounded-md border border-zinc-100 bg-zinc-50 p-4 font-mono">
       {STEPS.map((step, i) => (
         <li key={step.name} className="flex flex-col">
           <div className="flex flex-wrap items-center gap-x-3 gap-y-1 rounded-md border border-zinc-200 bg-white px-3 py-2">
